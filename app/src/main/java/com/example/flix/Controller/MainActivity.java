@@ -11,13 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
-import com.example.flix.Model.Movie;
+//import com.example.flix.Model.Movie;
+import com.example.flix.Model.MovieJava;
 import com.example.flix.R;
 import com.example.flix.adapters.MovieListAdapter;
+import com.example.flix.utils.ConstantsKt;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +29,11 @@ import kotlin.Unit;
 import okhttp3.Headers;
 
 import static com.example.flix.utils.ConstantsKt.EXTRA_MOVIE_DATA;
+import static com.example.flix.utils.ConstantsKt.EXTRA_MOVIE_OVERVIEW;
+import static com.example.flix.utils.ConstantsKt.EXTRA_MOVIE_POSTER;
+import static com.example.flix.utils.ConstantsKt.EXTRA_MOVIE_RATING;
+import static com.example.flix.utils.ConstantsKt.EXTRA_MOVIE_RELEASE;
+import static com.example.flix.utils.ConstantsKt.EXTRA_MOVIE_TITLE;
 import static com.example.flix.utils.ConstantsKt.NOW_PLAYING_URL;
 
 //import static com.example.flix.Utilities.ConstantsKt.NOW_PLAYING_URL;
@@ -34,7 +42,7 @@ import static com.example.flix.utils.ConstantsKt.NOW_PLAYING_URL;
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "ALTIN main";
-    List<Movie> movies;
+    List<MovieJava> movies;
 
 //    private static Unit invoke(Movie movie) {
 //        Log.d("ALTIN", movie.getTitle() + " has BEEN CLICKED");
@@ -52,11 +60,17 @@ public class MainActivity extends AppCompatActivity {
        // movieRV.setAdapter(movieListAdapter);
         RecyclerView movieRV = findViewById(R.id.rvMovieLIst);
         movies = new ArrayList<>();
-        final  MovieListAdapter movieListAdapter  =  new MovieListAdapter(this,movies, (Movie movie)->{
+        final  MovieListAdapter movieListAdapter  =  new MovieListAdapter(this,movies, (MovieJava movie)->{
             Log.d("ALTIN", movie.getTitle() + " has BEEN CLICKED");
            Intent detailActivity = new Intent(this,MovieDetails.class);
-           detailActivity.putExtra(EXTRA_MOVIE_DATA,movie); // this didnt work .. not sure why tried in java and kotlin
-          // startActivity(detailActivity);
+           //detailActivity.putExtra(EXTRA_MOVIE_DATA,movie); // this didnt work .. not sure why tried in java and kotlin
+           detailActivity.putExtra(EXTRA_MOVIE_DATA, Parcels.wrap(movie));
+//            detailActivity.putExtra(EXTRA_MOVIE_POSTER, movie.getPosterPath());
+//            detailActivity.putExtra(EXTRA_MOVIE_RELEASE, movie.getReleaseDate());
+//            detailActivity.putExtra(EXTRA_MOVIE_TITLE, movie.getTitle());
+//            detailActivity.putExtra(EXTRA_MOVIE_RATING, movie.getStars());
+//            detailActivity.putExtra(EXTRA_MOVIE_OVERVIEW, movie.getOverView());
+          startActivity(detailActivity);
             return null;
         });
         // set a layout manager
@@ -71,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONArray result = jsonObject.getJSONArray("results");
                    // movies = Movie.Companion.fromJasonArray(result);
-                        movies.addAll(Movie.CREATOR.fromJasonArray(result));
+                        //movies.addAll(Movie.CREATOR.fromJasonArray(result));
+                    movies.addAll(MovieJava.fromJsonArray(result));
                         movieListAdapter.notifyDataSetChanged();
                     Log.d(TAG, "Successful");
 

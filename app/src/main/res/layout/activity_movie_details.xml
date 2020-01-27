@@ -22,14 +22,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/vvTrailer"
-            android:layout_width="371dp"
+
+        <com.google.android.youtube.player.YouTubePlayerView
+            android:id="@+id/ytpvTrailer"
+            android:layout_width="0dp"
             android:layout_height="292dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvDetailTitle"
@@ -37,12 +38,15 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:text="Hardcore Henry"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vvTrailer" />
+            app:layout_constraintTop_toBottomOf="@+id/ytpvTrailer" />
 
         <TextView
             android:id="@+id/tvDetailsReleaseDate"
@@ -50,19 +54,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
             android:text="Release Date: 2016"
-            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            android:textColor="@color/colorAccent2"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.131"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDetailTitle" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="181dp" />
 
         <RatingBar
             android:id="@+id/ratingBar"
@@ -82,12 +80,20 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:isScrollContainer="true"
+            android:nestedScrollingEnabled="true"
+            android:overScrollMode="ifContentScrolls"
+            android:scrollbars="vertical"
             android:text="TextView"
+            android:textColor="@color/colorAccent2"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-            app:layout_constraintVertical_bias="0.072" />
+            app:layout_constraintVertical_bias="0.072">
+
+        </TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
