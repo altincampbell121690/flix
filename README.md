@@ -26,7 +26,7 @@
 
 ### Notes
 
-Describe any challenges encountered while building the app.
+Weird embed config is not supported in remoteembeddedplayer error. Eventually resolved itself but took me for ever to debug.
 
 ## Open-source libraries used
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
