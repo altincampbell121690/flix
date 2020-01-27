@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:scrollbarTrackVertical="@color/colorAccent2"
     tools:context=".Controller.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMovieLIst"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@android:color/black"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

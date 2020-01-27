@@ -6,21 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="12dp"
-    android:background="@android:drawable/screen_background_dark">
+    android:background="@color/colorPrimaryDark">
 
     <ImageView
         android:id="@+id/ivPoster"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="160dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/tvOverView"
+        android:layout_marginBottom="8dp"
+        android:foregroundGravity="center_vertical"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvTitle"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -30,7 +32,9 @@
         android:layout_marginEnd="8dp"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />

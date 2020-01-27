@@ -1,5 +1,6 @@
 package com.example.flix.Model
 
+/*
 import android.os.Parcel
 import android.os.Parcelable
 import org.json.JSONArray
@@ -43,4 +44,4 @@ class MovieDetail(jsonObject: JSONObject) : Parcelable {
             return arrayOfNulls(size)
         }
     }
-}
+}*/

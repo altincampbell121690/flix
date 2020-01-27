@@ -8,17 +8,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.flix.Model.Movie
+//import com.example.flix.Model.Movie
+import com.example.flix.Model.MovieJava
 import com.example.flix.R
 
-class MovieListAdapter(var context: Context, var movieList:List<Movie>, val movieOnClick:(Movie)->Unit): RecyclerView.Adapter<MovieListAdapter.movieVH>() {
-    inner class movieVH(itemView: View,val moiveOnClick :(Movie)->Unit) : RecyclerView.ViewHolder(itemView) {
+class MovieListAdapter(var context: Context, var movieList:List<MovieJava>, val movieOnClick:(MovieJava)->Unit): RecyclerView.Adapter<MovieListAdapter.movieVH>() {
+    inner class movieVH(itemView: View,val moiveOnClick :(MovieJava)->Unit) : RecyclerView.ViewHolder(itemView) {
 
         val posterImg = itemView.findViewById<ImageView>(R.id.ivPoster)
         val titleTxt = itemView.findViewById<TextView>(R.id.tvTitle)
         val overViewTxt = itemView.findViewById<TextView>(R.id.tvOverView)
 
-        fun bindView(movieItem: Movie, context:Context){
+        fun bindView(movieItem: MovieJava, context:Context){
 
             titleTxt.text = movieItem.title
             overViewTxt.text = movieItem.overView
